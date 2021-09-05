@@ -1,9 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+* Command
+  * Haml  
+      `rails haml:erb2haml`  
+  * Devise  
+      `rails g devise XXXX`  
+      `rails g devise:i18n:views XXXX`  
 
 * Ruby version
 
@@ -20,5 +22,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
