@@ -1,5 +1,5 @@
 %h2= t('.sign_in')
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+= form_with model:@admin, url: admin_session_path, id: 'new_admin', class: 'new_admin', local: true do |f|
   .mb-3
     = f.label :email, class: "form-label"
     = f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email"
