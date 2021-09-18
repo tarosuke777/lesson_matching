@@ -12,6 +12,6 @@
   .mb-3
     = f.label :password_confirmation
     = f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password"
-  .actions
+  .mb-3
     = f.submit t('.sign_up'), class: "btn btn-primary btn-sm"
 = render "admins/shared/links"
