@@ -9,10 +9,21 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    - if flash.notice
-      .alert.alert-success
-        = flash.notice
-    - if flash.alert
-      .alert.alert-warning
-        = flash.alert
-    = yield
+    .navbar.navbar-expand-lg.navbar-light.bg-light
+      .container
+        = link_to t(:title), teachers_index_path, class: "navbar-brand"
+        %ui.navbar-nav
+          - if admin_signed_in?
+            %li.nav-item
+              = link_to t(:sign_out), destroy_admin_session_path, class: "nav-link", method: :delete
+          - else
+            %li.nav-item
+              = link_to t(:sign_in), new_admin_session_path, class: "nav-link"
+    .container.py-3
+      - if flash.notice
+        .alert.alert-success
+          = flash.notice
+      - if flash.alert
+        .alert.alert-warning
+          = flash.alert
+      = yield

@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+5.times do |n|
+  Admin.create!(
+       :email =>  "test#{n + 1}@test.com", :password => "testtest"
+  )
+end
+5.times do |n|
+  Teacher.create!(
+    :email =>  "test#{n + 1}@test.com", :password => "testtest"
+  );
+end

@@ -6,7 +6,9 @@
   * Devise  
       `rails g devise XXXX`  
       `rails g devise:i18n:views XXXX`  
-
+  * DB
+      `rails db:mirgrate`
+      `rails db:migrate:reset`
 * Ruby version
 
 * System dependencies

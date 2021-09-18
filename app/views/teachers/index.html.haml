@@ -1,0 +1,12 @@
+%h2 Teachers#index
+.row
+  %table.table
+    %thead
+      %tr 
+        %th{"scope": "col"}#
+        %th{"scope": "col"}E-Mail
+    %tbody
+      - @teachers.each.with_index(1) do | teacher, n |
+        %tr
+          %th{"scope": "row"}=n
+          %td=teacher.email
