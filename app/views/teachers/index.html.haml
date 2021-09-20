@@ -13,8 +13,8 @@
         %th{"scope": "col"}#
         %th{"scope": "col"}E-Mail
     %tbody
-      - @teachers.each.with_index(1) do | teacher, n |
+      - @teachers.each do | teacher |
         %tr
-          %th{"scope": "row"}=n
+          %th{"scope": "row"}=teacher.id
           %td= link_to teacher.email, teachers_show_path(id: teacher.id)
   = paginate @teachers
