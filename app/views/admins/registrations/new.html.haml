@@ -1,5 +1,5 @@
 %h2= t('.sign_up')
-= form_with model:@admin, url:admin_registration_path , id: 'new_admin', class: 'new_admin', local: true do |f|
+= form_with model:@admin, url:admin_registration_path , id: 'new_admin', class: 'new_admin' do |f|
   = render "devise/shared/error_messages", resource: resource
   .mb-3
     = f.label :email, class: "form-label"
