@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'teachers/index'
   get 'teachers/show'
-  get 'teachers/search'
   devise_for :teachers, controllers: {
     sessions: 'teachers/sessions',
     registrations: 'teachers/registrations'

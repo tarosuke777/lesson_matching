@@ -9,6 +9,7 @@
   * DB
       `rails db:mirgrate`
       `rails db:migrate:reset`
+      `rails db:seed`
 * Ruby version
 
 * System dependencies

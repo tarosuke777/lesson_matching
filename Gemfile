@@ -70,3 +70,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'rexml', '~> 3.2', '>= 3.2.4'
+
+# gem 'kaminari'
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
