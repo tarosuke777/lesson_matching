@@ -1,0 +1,23 @@
+%h2= t ".title"
+.row
+  .mb-3
+    = link_to t(:regist), new_teacher_registration_path, class:"btn btn-primary btn-sm"
+.row
+  = form_with model:@teacher_search_form, scope: :teacher_search_form, url: teachers_index_path, method: :get do |f|
+    .mb-3
+      = f.label :email, class: "form-label"
+      = f.text_field :email, class: "form-control"
+    .mb-3
+      = f.submit t('search'), class: "btn btn-primary btn-sm"
+.row
+  %table.table
+    %thead
+      %tr 
+        %th{"scope": "col"}#
+        %th{"scope": "col"}E-Mail
+    %tbody
+      - @teachers.each do | teacher |
+        %tr
+          %th{"scope": "row"}=teacher.id
+          %td= link_to teacher.email, teachers_show_path(id: teacher.id)
+  = paginate @teachers

@@ -2,6 +2,9 @@ ja:
   title: "マッチングレッスン with Rails"
   search: "検索"
   regist: "登録"
+  admins:
+    index:
+      title: "講師検索"
   teachers:
     index:
       title: "講師検索"
