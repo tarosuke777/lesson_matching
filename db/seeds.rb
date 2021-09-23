@@ -6,13 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-1.times do |n|
-  Admin.create!(
-       :email =>  "test#{n + 1}@test.com", :password => "testtest"
-  )
-end
+Admin.create!(
+       :email =>  "admin@test.com", :password => "testtest"
+)
+
 20.times do |n|
   Teacher.create!(
-    :email =>  "test#{n + 1}@test.com", :password => "testtest"
+    :email =>  "t#{n + 1}@test.com", :password => "testtest"
+  );
+end
+
+20.times do |n|
+  User.create!(
+    :email =>  "u#{n + 1}@test.com", :password => "testtest"
   );
 end
