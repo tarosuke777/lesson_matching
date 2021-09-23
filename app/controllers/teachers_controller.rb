@@ -8,6 +8,12 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
   end
 
+  # def become
+  #   sign_in(:teacher, Teacher.find(params[:id]))
+  #   sign_out(:teacher)
+  #   redirect_to edit_teacher_registration_url # or user_root_url
+  # end
+
   private
 
   def search_params

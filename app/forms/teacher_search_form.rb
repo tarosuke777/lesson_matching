@@ -6,7 +6,6 @@ class TeacherSearchForm
     attribute :page, :integer
 
     def search
-        p page
         Teacher.page(page).per(10).where("email like ?", "#{email}%")
     end
 

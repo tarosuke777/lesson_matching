@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'teachers/index'
   get 'teachers/show'
+  get 'teachers/become'
   devise_for :teachers, controllers: {
     sessions: 'teachers/sessions',
     registrations: 'teachers/registrations'

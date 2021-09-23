@@ -1,4 +1,7 @@
-%h2 Teachers#index
+%h2= t ".title"
+.row
+  .mb-3
+    = link_to t(:regist), new_teacher_registration_path, class:"btn btn-primary btn-sm"
 .row
   = form_with model:@teacher_search_form, scope: :teacher_search_form, url: teachers_index_path, method: :get do |f|
     .mb-3

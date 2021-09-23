@@ -49,10 +49,10 @@ ja:
         update: "更新"
         we_need_your_current_password_to_confirm_your_changes: "変更を反映するには現在のパスワードを入力してください"
       new:
-        sign_up: "アカウント登録"
+        sign_up: "管理者登録"
     sessions:
       new:
-        sign_in: "ログイン"
+        sign_in: "管理者ログイン"
     shared:
       links:
         back: "戻る"
@@ -105,10 +105,10 @@ ja:
         update: "更新"
         we_need_your_current_password_to_confirm_your_changes: "変更を反映するには現在のパスワードを入力してください"
       new:
-        sign_up: "アカウント登録"
+        sign_up: "講師登録"
     sessions:
       new:
-        sign_in: "ログイン"
+        sign_in: "講師ログイン"
     shared:
       links:
         back: "戻る"
