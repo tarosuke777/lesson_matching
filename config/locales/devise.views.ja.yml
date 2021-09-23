@@ -63,6 +63,7 @@ ja:
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: "管理者登録"
         sign_out: "管理者ログアウト"
+        top: "管理者トップ"
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
@@ -120,6 +121,7 @@ ja:
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: "講師登録"
         sign_out: "講師ログアウト"
+        top: "講師トップ"
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"

@@ -5,7 +5,8 @@
       `rails haml:erb2haml`  
   * Devise  
       `rails g devise XXXX`  
-      `rails g devise:i18n:views XXXX`  
+      `rails g devise:i18n:views XXXX`
+      `rails g devise:controllers XXXX`  
   * DB
       `rails db:mirgrate`
       `rails db:migrate:reset`

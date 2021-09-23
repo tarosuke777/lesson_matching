@@ -14,17 +14,15 @@
         = link_to t(:title), teachers_index_path, class: "navbar-brand"
         %ui.navbar-nav
           - if admin_signed_in?
-            %li.nav-item
-              = link_to t("admins.shared.links.sign_out"), destroy_admin_session_path, class: "nav-link", method: :delete
+            %li.nav-item= link_to t("admins.shared.links.top"), admins_index_path, class: "nav-link"
+            %li.nav-item= link_to "#{t("admins.shared.links.sign_out")}(#{current_admin.email})", destroy_admin_session_path, class: "nav-link", method: :delete
           - else
-            %li.nav-item
-              = link_to t("admins.shared.links.sign_in"), new_admin_session_path, class: "nav-link"
+            %li.nav-item= link_to t("admins.shared.links.sign_in"), new_admin_session_path, class: "nav-link"
           - if teacher_signed_in?
-            %li.nav-item
-              = link_to t("teachers.shared.links.sign_out"), destroy_teacher_session_path, class: "nav-link", method: :delete
+            %li.nav-item= link_to t("teachers.shared.links.top"), teachers_index_path, class: "nav-link"
+            %li.nav-item= link_to "#{t("teachers.shared.links.sign_out")}(#{current_teacher.email})", destroy_teacher_session_path, class: "nav-link", method: :delete
           - else
-            %li.nav-item
-              = link_to t("teachers.shared.links.sign_in"), new_teacher_session_path, class: "nav-link"
+            %li.nav-item= link_to t("teachers.shared.links.sign_in"), new_teacher_session_path, class: "nav-link"
     .container.py-3
       - if flash.notice
         .alert.alert-success

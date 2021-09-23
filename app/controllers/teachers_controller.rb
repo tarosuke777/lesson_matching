@@ -8,11 +8,10 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
   end
 
-  # def become
-  #   sign_in(:teacher, Teacher.find(params[:id]))
-  #   sign_out(:teacher)
-  #   redirect_to edit_teacher_registration_url # or user_root_url
-  # end
+  def proxy_login
+    sign_in(:teacher, Teacher.find(params[:id]))
+    redirect_to teachers_index_url
+  end
 
   private
 

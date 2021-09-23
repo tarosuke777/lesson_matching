@@ -15,9 +15,11 @@
       %tr 
         %th{"scope": "col"}#
         %th{"scope": "col"}E-Mail
+        %th{"scope": "col"}=t(:proxy_login)
     %tbody
       - @teachers.each do | teacher |
         %tr
-          %th{"scope": "row"}=teacher.id
+          %th=teacher.id
           %td= link_to teacher.email, teachers_show_path(id: teacher.id)
+          %td= link_to t(:proxy_login), teachers_proxy_login_path(id: teacher.id), class:"btn btn-primary btn-sm"
   = paginate @teachers
