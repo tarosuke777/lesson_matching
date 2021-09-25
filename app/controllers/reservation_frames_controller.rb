@@ -1,0 +1,2 @@
+class ReservationFramesController < ApplicationController
+end

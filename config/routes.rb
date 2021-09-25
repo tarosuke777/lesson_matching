@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+
+  resources :admins do
+    resources :home, module: 'admins', on: :member, only: [:index]
+  end
+
   root 'teachers#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

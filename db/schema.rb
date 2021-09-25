@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_23_080617) do
+ActiveRecord::Schema.define(version: 2021_09_23_094433) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2021_09_23_080617) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "reservation_frames", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "teacher_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"start_time\", \"teacher\"", name: "index_reservation_frames_on_start_time_and_teacher", unique: true
+    t.index ["teacher_id"], name: "index_reservation_frames_on_teacher_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -60,6 +70,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_080617) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reservation_frames", "teachers"
   add_foreign_key "reservations", "teachers"
   add_foreign_key "reservations", "users"
 end
