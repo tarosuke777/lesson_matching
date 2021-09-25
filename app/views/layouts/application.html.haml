@@ -14,7 +14,7 @@
         = link_to t(:title), teachers_index_path, class: "navbar-brand"
         %ui.navbar-nav
           - if admin_signed_in?
-            %li.nav-item= link_to t("admins.shared.links.top"), admins_index_path, class: "nav-link"
+            %li.nav-item= link_to t("admins.shared.links.top"), admin_home_index_path(current_admin.id), class: "nav-link"
             %li.nav-item= link_to "#{t("admins.shared.links.sign_out")}(#{current_admin.email})", destroy_admin_session_path, class: "nav-link", method: :delete
           - else
             %li.nav-item= link_to t("admins.shared.links.sign_in"), new_admin_session_path, class: "nav-link"

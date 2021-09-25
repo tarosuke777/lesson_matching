@@ -26,7 +26,7 @@ class Admins::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    admins_index_path
+    admin_home_index_path resource.id
   end 
 
 end
