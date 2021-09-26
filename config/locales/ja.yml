@@ -8,3 +8,9 @@ ja:
   teachers:
     index:
       title: "講師検索"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%Y/%m/%d %H:%M"
+      day: "%m/%d"
+      hour: "%H:%M"
