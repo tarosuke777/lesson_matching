@@ -1,6 +1,9 @@
 %h1 ReservationFrames#index
 %p Find me in app/views/reservation_frames/index.html.haml
-= form_with model:@reservation_frames, url: teachers_index_path do |f|
+= form_with model:@reservation_frames, url: reservation_frames_path do |f|
+  .row
+    .mb-3
+      = f.submit t('search'), class: "btn btn-primary btn-sm"
   - t = Time.current.beginning_of_day
   .row.border
     .col.border
@@ -16,9 +19,10 @@
         .row.border{ style: "height: 5%; align-items: center;" }
           .col.border
             = l t + num.day, format: :day
-        - 24.times do |num|
+        - 24.times do |num2|
           .row.border{ style: "height: 5%; align-items: center;" }
             .col.border
               .form-check
-                = f.check_box 'freezeflag', {class:"form-check-input"}, true, false
-                %label.form-check-label=num
+                - val = t + num.day + num2.hours 
+                = f.check_box 'times[]', {class:"form-check-input"}, checked_value= val, false
+                %label.form-check-label=num2

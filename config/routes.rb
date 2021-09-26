@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'reservation_frames/index'
-  get 'reservation_frames/create'
   devise_for :teachers, controllers: {
     sessions: 'teachers/sessions',
     registrations: 'teachers/registrations'
