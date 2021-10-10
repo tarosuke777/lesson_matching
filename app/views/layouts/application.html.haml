@@ -19,7 +19,7 @@
           - else
             %li.nav-item= link_to t("admins.shared.links.sign_in"), new_admin_session_path, class: "nav-link"
           - if teacher_signed_in?
-            %li.nav-item= link_to t("teachers.shared.links.top"), teacher_home_index_path, class: "nav-link"
+            %li.nav-item= link_to t("teachers.shared.links.top"), teacher_home_index_path(current_teacher.id), class: "nav-link"
             %li.nav-item= link_to "#{t("teachers.shared.links.sign_out")}(#{current_teacher.email})", destroy_teacher_session_path, class: "nav-link", method: :delete
           - else
             %li.nav-item= link_to t("teachers.shared.links.sign_in"), new_teacher_session_path, class: "nav-link"

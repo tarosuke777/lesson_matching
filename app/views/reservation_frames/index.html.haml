@@ -1,9 +1,36 @@
 %h1 ReservationFrames#index
 %p Find me in app/views/reservation_frames/index.html.haml
-= form_with model:@reservation_frames, url: reservation_frames_path do |f|
+= form_with model:@reservation_frames, url: reservation_frames_path do |form|
+  = form.submit t('regist'), class: "btn btn-primary btn-sm"
   .row
-    .mb-3
-      = f.submit t('search'), class: "btn btn-primary btn-sm"
+    .col
+      .row.border{ style: "height: 5%; align-items: center;" }
+        .col
+          Time
+      - t = Time.current.beginning_of_day
+      - ReservationFrameCollection::HOURS.times do |num|
+        .row.border{ style: "height: 5%; align-items: center;" }
+          .col
+            = l t + num.hours, format: :hour
+    - t = Time.current.beginning_of_day
+    - ReservationFrameCollection::DAYS.times do |num|
+      - t1 = l t + num.day, format: :day
+      .col
+        .row.border{ style: "height: 5%; align-items: center;" }
+          .col
+            = t1
+        = form.fields_for :reservation_frames  do |f|
+          - t2 =  l f.object.start_time, format: :day
+          - if t1 == t2 then
+            .row.border{ style: "height: 5%; align-items: center;" }
+              .col
+                .form-check
+                  = f.check_box :availability
+                  = f.hidden_field :start_time
+                  = f.hidden_field :end_time
+                  = f.hidden_field :teacher_id
+
+-#
   - t = Time.current.beginning_of_day
   .row.border
     .col.border
@@ -19,10 +46,11 @@
         .row.border{ style: "height: 5%; align-items: center;" }
           .col.border
             = l t + num.day, format: :day
+
         - 24.times do |num2|
           .row.border{ style: "height: 5%; align-items: center;" }
             .col.border
               .form-check
                 - val = t + num.day + num2.hours 
-                = f.check_box 'times[]', {class:"form-check-input"}, checked_value= val, false
+                -# = f.check_box :start_time, {class:"form-check-input"}, checked_value= val, false
                 %label.form-check-label=num2
