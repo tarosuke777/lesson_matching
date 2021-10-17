@@ -1,3 +1,4 @@
+= javascript_pack_tag 'reservation_frame/application', 'data-turbolinks-track': 'reload'
 %h1 ReservationFrames#index
 %p Find me in app/views/reservation_frames/index.html.haml
 = form_with model:@reservation_frames, url: reservation_frames_path do |form|
@@ -19,13 +20,14 @@
         .row.border{ style: "height: 5%; align-items: center;" }
           .col
             = t1
+            = check_box_tag t1, true, false, {class: "jsc-all jsc-val#{t1.delete('/')}"}
         = form.fields_for :reservation_frames  do |f|
           - t2 =  l f.object.start_time, format: :day
           - if t1 == t2 then
             .row.border{ style: "height: 5%; align-items: center;" }
               .col
                 .form-check
-                  = f.check_box :availability
+                  = f.check_box :availability, class: "jscTimeChk#{t1.delete('/')}"
                   = f.hidden_field :start_time
                   = f.hidden_field :end_time
                   = f.hidden_field :teacher_id
