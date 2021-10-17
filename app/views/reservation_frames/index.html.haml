@@ -1,10 +1,10 @@
 = javascript_pack_tag 'reservation_frame/application', 'data-turbolinks-track': 'reload'
-%h1 ReservationFrames#index
+%h2= t ".title"
 - tomorrow = @day.tomorrow
 - yesterday = @day.yesterday
-= link_to "前日", reservation_frames_path(yyyy: yesterday.strftime("%Y"), mm:yesterday.strftime("%m"), dd:yesterday.strftime("%d"))
-= link_to "当日", reservation_frames_path(yyyy: @day.strftime("%Y"), mm:@day.strftime("%m"), dd:@day.strftime("%d"))
-= link_to "翌日", reservation_frames_path(yyyy: tomorrow.strftime("%Y"), mm:tomorrow.strftime("%m"), dd:tomorrow.strftime("%d"))
+= link_to t('.yesterday'), reservation_frames_path(yyyy: yesterday.strftime("%Y"), mm:yesterday.strftime("%m"), dd:yesterday.strftime("%d"))
+= link_to t('.today'), reservation_frames_path(yyyy: @day.strftime("%Y"), mm:@day.strftime("%m"), dd:@day.strftime("%d"))
+= link_to t('.tomorrow'), reservation_frames_path(yyyy: tomorrow.strftime("%Y"), mm:tomorrow.strftime("%m"), dd:tomorrow.strftime("%d"))
 = form_with model:@reservation_frames, url: reservation_frames_path do |form|
   = form.submit t('regist'), class: "btn btn-primary btn-sm"
   .row
