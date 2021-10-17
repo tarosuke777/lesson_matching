@@ -4,19 +4,21 @@ class  ReservationFrameCollection
 
     DAYS = 7
     HOURS = 24
+    # DAY = Time.current.beginning_of_day
 
     attr_accessor :reservation_frames
+    attr_accessor :day
 
     def initialize(attributes = {})
         super attributes
-        # self.reservation_frames = FORM_COUNT.times.map { ReservationFrame.new() } unless self.reservation_frames.present?
+        # self.reservation_frames = FORM_COUNT.times.map { ReservationFrame.new() } unless self.reservation_frames.present?       
 
         unless self.reservation_frames.present?
             self.reservation_frames = Array.new
 
             DAYS.times do |day|
                 HOURS.times do |hour|
-                    start_time = Time.current.beginning_of_day + day.day + hour.hours
+                    start_time = attributes[:day] + day.day + hour.hours
                     teacher_id = 1
                     tmp = ReservationFrame.where(start_time: start_time, teacher_id: teacher_id).first
                     if tmp.present?

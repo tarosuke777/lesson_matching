@@ -1,7 +1,12 @@
 class ReservationFramesController < ApplicationController
+
   def index
     # @reservation_frames = 10.times.map{ReservationFrame.new}
-    @reservation_frames = ReservationFrameCollection.new
+    @day = Time.current.beginning_of_day
+    if params[:yyyy] then
+      @day = Time.new(params[:yyyy], params[:mm], params[:dd])
+    end
+    @reservation_frames = ReservationFrameCollection.new(day: @day)
   end
 
   def create

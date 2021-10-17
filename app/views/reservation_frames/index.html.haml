@@ -1,21 +1,23 @@
 = javascript_pack_tag 'reservation_frame/application', 'data-turbolinks-track': 'reload'
 %h1 ReservationFrames#index
-%p Find me in app/views/reservation_frames/index.html.haml
+- tomorrow = @day.tomorrow
+- yesterday = @day.yesterday
+= link_to "前日", reservation_frames_path(yyyy: yesterday.strftime("%Y"), mm:yesterday.strftime("%m"), dd:yesterday.strftime("%d"))
+= link_to "当日", reservation_frames_path(yyyy: @day.strftime("%Y"), mm:@day.strftime("%m"), dd:@day.strftime("%d"))
+= link_to "翌日", reservation_frames_path(yyyy: tomorrow.strftime("%Y"), mm:tomorrow.strftime("%m"), dd:tomorrow.strftime("%d"))
 = form_with model:@reservation_frames, url: reservation_frames_path do |form|
   = form.submit t('regist'), class: "btn btn-primary btn-sm"
   .row
     .col
       .row.border{ style: "height: 5%; align-items: center;" }
         .col
-          Time
-      - t = Time.current.beginning_of_day
+          Time   
       - ReservationFrameCollection::HOURS.times do |num|
         .row.border{ style: "height: 5%; align-items: center;" }
           .col
-            = l t + num.hours, format: :hour
-    - t = Time.current.beginning_of_day
+            = l @day + num.hours, format: :hour
     - ReservationFrameCollection::DAYS.times do |num|
-      - t1 = l t + num.day, format: :day
+      - t1 = l @day + num.day, format: :day
       .col
         .row.border{ style: "height: 5%; align-items: center;" }
           .col
@@ -31,28 +33,3 @@
                   = f.hidden_field :start_time
                   = f.hidden_field :end_time
                   = f.hidden_field :teacher_id
-
--#
-  - t = Time.current.beginning_of_day
-  .row.border
-    .col.border
-      .row.border{ style: "height: 5%; align-items: center;" }
-        .col.border
-          Time
-      - 24.times do |num|
-        .row.border{ style: "height: 5%; align-items: center;" }
-          .col.border
-            = l t + num.hours, format: :hour
-    - 7.times do |num|
-      .col.border
-        .row.border{ style: "height: 5%; align-items: center;" }
-          .col.border
-            = l t + num.day, format: :day
-
-        - 24.times do |num2|
-          .row.border{ style: "height: 5%; align-items: center;" }
-            .col.border
-              .form-check
-                - val = t + num.day + num2.hours 
-                -# = f.check_box :start_time, {class:"form-check-input"}, checked_value= val, false
-                %label.form-check-label=num2
