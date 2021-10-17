@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     resources :home, module: 'teachers', on: :member, only: [:index]
   end
 
+  resources :users do
+    resources :home, module: 'users', on: :member, only: [:index]
+  end
   resources :reservation_frames, only: [:index, :create]
 
   get 'teachers/index'

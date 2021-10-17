@@ -1,0 +1,15 @@
+%h2= t('.sign_in')
+= form_with model:@user, url: user_session_path, id: 'new_user', class: 'new_user'  do |f|
+  .mb-3
+    = f.label :email, class: "form-label"
+    = f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email"
+  .mb-3
+    = f.label :password, class: "form-label"
+    = f.password_field :password, class: "form-control", autocomplete: "current-password"
+  - if devise_mapping.rememberable?
+    .mb-3
+      = f.check_box :remember_me, class: "form-check-input"
+      = f.label :remember_me, class: "form-check-label"
+  .mb-3
+    = f.submit t('.sign_in'), class: "btn btn-primary btn-sm"
+= render "users/shared/links"
